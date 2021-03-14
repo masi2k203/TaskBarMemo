@@ -48,9 +48,31 @@ namespace TaskBarMemo.ViewModels
             // コマンドの購読
             ListViewItemDeleteCommand.Subscribe(x =>
             {
-                var selectMemo = (Models.MemoData)x;
-                System.Diagnostics.Debug.WriteLine($"Selected : {selectMemo.Guid} / Text : {selectMemo.MemoBody}");
+                DeleteMemo(x);
+                RefreshMemoList();
             });
         }
+
+        #region メソッド
+
+        private void DeleteMemo(object x)
+        {
+            var selectMemo = (Models.MemoData)x;
+            DataAgent.DeleteMemo(selectMemo.Guid);
+        }
+
+        private void RefreshMemoList()
+        {
+            // リストを削除
+            MemoCollection.Clear();
+            // メモ取得およびコレクションに追加
+            foreach (var item in DataAgent.GetMemos())
+            {
+                MemoCollection.Add(item);
+            }
+
+        }
+
+        #endregion
     }
 }

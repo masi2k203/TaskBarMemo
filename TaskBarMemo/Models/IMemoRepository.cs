@@ -11,5 +11,7 @@ namespace TaskBarMemo.Models
         public List<MemoData> GetMemos();
 
         public void SaveMemo(MemoData memo);
+
+        public void DeleteMemo(string memoId);
     }
 }

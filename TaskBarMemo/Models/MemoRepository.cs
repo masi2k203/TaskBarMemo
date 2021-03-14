@@ -30,7 +30,7 @@ namespace TaskBarMemo.Models
         }
 
         /// <summary>
-        /// メモリ上に展開する場合のみ
+        /// 初回起動・データベースファイル損失時にテーブルを作成する
         /// </summary>
         public void CreateTable()
         {
@@ -49,6 +49,10 @@ namespace TaskBarMemo.Models
             }
         }
 
+        /// <summary>
+        /// メモを取得する
+        /// </summary>
+        /// <returns></returns>
         public List<MemoData> GetMemos()
         {
             List<MemoData> Memos = new();
@@ -77,6 +81,10 @@ namespace TaskBarMemo.Models
             return Memos;
         }
 
+        /// <summary>
+        /// メモを保存する
+        /// </summary>
+        /// <param name="memo"></param>
         public void SaveMemo(MemoData memo)
         {
             using (var cn = new SQLiteConnection(_SQLiteConnectionStringBuilder.ToString()))
@@ -86,6 +94,24 @@ namespace TaskBarMemo.Models
                 using (var cmd = new SQLiteCommand(cn))
                 {
                     cmd.CommandText = $"INSERT INTO memo(Id, Body, Time) VALUES('{memo.Guid}', '{memo.MemoBody}', '{memo.MemoTime}')";
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        /// <summary>
+        /// メモを削除する
+        /// </summary>
+        /// <param name="memoId"></param>
+        public void DeleteMemo(string memoId)
+        {
+            using (var cn = new SQLiteConnection(_SQLiteConnectionStringBuilder.ToString()))
+            {
+                cn.Open();
+
+                using (var cmd = new SQLiteCommand(cn))
+                {
+                    cmd.CommandText = $"DELETE FROM memo WHERE Id LIKE '{memoId}'";
                     cmd.ExecuteNonQuery();
                 }
             }

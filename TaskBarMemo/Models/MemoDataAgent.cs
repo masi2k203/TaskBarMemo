@@ -48,6 +48,11 @@ namespace TaskBarMemo.Models
             repository.SaveMemo(memo);
         }
 
+        public void DeleteMemo(string memoId)
+        {
+            repository.DeleteMemo(memoId);
+        }
+
         /// <summary>
         /// コンストラクタ
         /// </summary>

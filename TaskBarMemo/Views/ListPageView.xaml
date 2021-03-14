@@ -44,7 +44,7 @@
                                     <MenuItem
                                         Command="{Binding ListViewItemDeleteCommand}"
                                         CommandParameter="{Binding PlacementTarget.Content, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
-                                        Header="Select" />
+                                        Header="削除" />
                                 </ContextMenu>
                             </Setter.Value>
                         </Setter>
