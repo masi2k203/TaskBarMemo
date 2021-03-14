@@ -23,11 +23,11 @@ namespace TaskBarMemo.Models
         /// </summary>
         /// <param name="memoId">取得したいメモのID</param>
         /// <returns>IDに対応したメモ</returns>
-        public MemoData GetMemo(int memoId)
+        public MemoData GetMemo(string memoGUID)
         {
             var memos = this.repository.GetMemos();
 
-            return memos.Find(m => m.Id == memoId);
+            return memos.Find(m => m.Guid == memoGUID);
         }
 
         /// <summary>

@@ -22,30 +22,7 @@ namespace TaskBarMemo.Models
 
         private List<MemoData> SampleDatas = new()
         {
-            new MemoData
-            {
-                Id = 1,
-                MemoBody = "テストメモ1",
-                MemoTime = DateTime.Now
-            },
-            new MemoData
-            {
-                Id = 2,
-                MemoBody = "テストメモ2",
-                MemoTime = DateTime.Now
-            },
-            new MemoData
-            {
-                Id = 3,
-                MemoBody = "テストメモ3",
-                MemoTime = DateTime.Now
-            },
-            new MemoData
-            {
-                Id = 4,
-                MemoBody = "テストメモ4",
-                MemoTime = DateTime.Now
-            },
+
         };
 
         public void Dispose()

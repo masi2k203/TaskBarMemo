@@ -50,7 +50,7 @@ namespace TaskBarMemo.ViewModels
             SaveMemoCommand = MemoBodyProperty.ObserveHasErrors.Select(x => !x).ToReactiveCommand();
             SaveMemoCommand.Subscribe(_ => DataAgent.SaveMemo(new Models.MemoData()
             {
-                Id = DataAgent.GetMemoCount() + 1,
+                Guid = Guid.NewGuid().ToString("N"),
                 MemoBody = MemoBodyProperty.Value,
                 MemoTime = DateTime.Now
             }));

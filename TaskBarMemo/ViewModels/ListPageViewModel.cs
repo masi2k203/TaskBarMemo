@@ -49,7 +49,7 @@ namespace TaskBarMemo.ViewModels
             ListViewItemDeleteCommand.Subscribe(x =>
             {
                 var selectMemo = (Models.MemoData)x;
-                System.Diagnostics.Debug.WriteLine($"Selected : {selectMemo.Id} / Text : {selectMemo.MemoBody}");
+                System.Diagnostics.Debug.WriteLine($"Selected : {selectMemo.Guid} / Text : {selectMemo.MemoBody}");
             });
         }
     }

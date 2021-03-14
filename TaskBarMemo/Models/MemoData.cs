@@ -11,7 +11,8 @@ namespace TaskBarMemo.Models
         /// <summary>
         /// メモID
         /// </summary>
-        public int Id { get; set; }
+        //public int Id { get; set; }
+        public string Guid { get; set; }
 
         /// <summary>
         /// メモ本文
