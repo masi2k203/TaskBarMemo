@@ -15,21 +15,23 @@
         <vm:SettingPageViewModel />
     </Page.DataContext>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+    <ScrollViewer>
+        <Grid Margin="20,4,20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-        <TextBlock
-            Grid.Row="0"
-            Style="{StaticResource HeaderTextBoxStyle}"
-            Text="設定" />
+            <TextBlock
+                Grid.Row="0"
+                Style="{StaticResource HeaderTextBoxStyle}"
+                Text="設定" />
 
-        <StackPanel Grid.Row="1" Orientation="Vertical">
-            <TextBlock Style="{StaticResource SubHeaderTextBoxStyle}" Text="情報" />
-            <TextBlock Text="バージョン" />
-            <TextBlock Text="{Binding FileVersionProperty.Value}" />
-        </StackPanel>
-    </Grid>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <TextBlock Style="{StaticResource SubHeaderTextBoxStyle}" Text="情報" />
+                <TextBlock Text="バージョン" />
+                <TextBlock Text="{Binding FileVersionProperty.Value}" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>

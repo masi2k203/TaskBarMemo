@@ -17,22 +17,23 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock
-            Grid.Row="0"
-            Style="{StaticResource HeaderTextBoxStyle}"
-            Text="メモ一覧" />
-
-        <Grid Grid.Row="1" Margin="0,20,0,10">
+        <!--  ページ内容  -->
+        <Grid Margin="20,4,20,10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="8*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
-            <ui:ListView Grid.Row="0" ItemsSource="{Binding MemoCollection}">
+            <TextBlock
+                Grid.Row="0"
+                Style="{StaticResource HeaderTextBoxStyle}"
+                Text="メモ一覧" />
+
+            <ui:ListView Grid.Row="1" ItemsSource="{Binding MemoCollection}">
                 <ui:ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ui:ListViewItem}">
                         <Setter Property="Tag" Value="{Binding DataContext, RelativeSource={RelativeSource AncestorType=ui:ListView}}" />
@@ -61,7 +62,8 @@
                                 <TextBlock
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
-                                    Text="{Binding MemoBody}" />
+                                    Text="{Binding MemoBody}"
+                                    TextWrapping="Wrap" />
                                 <TextBlock
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
@@ -72,6 +74,11 @@
                     </DataTemplate>
                 </ui:ListView.ItemTemplate>
             </ui:ListView>
+
         </Grid>
+
+        <!--  コマンドバー  -->
+        <ui:CommandBar Grid.Row="1" />
     </Grid>
+
 </Page>

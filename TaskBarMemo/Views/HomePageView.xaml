@@ -17,33 +17,36 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock
-            Grid.Row="0"
-            Style="{StaticResource HeaderTextBoxStyle}"
-            Text="新規メモ" />
-
-        <Grid Grid.Row="1" Margin="0,20,0,10">
+        <!--  ページ内容  -->
+        <Grid Grid.Row="0" Margin="20,4,20,10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="8*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
             </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Style="{StaticResource HeaderTextBoxStyle}"
+                Text="新規メモ" />
+
             <TextBox
+                Grid.Row="1"
                 AcceptsReturn="True"
                 AcceptsTab="True"
                 Text="{Binding MemoBodyProperty.Value, UpdateSourceTrigger=PropertyChanged}" />
-            <StackPanel
-                Grid.Row="2"
-                HorizontalAlignment="Right"
-                Orientation="Horizontal">
-                <Button
-                    Width="100"
-                    Command="{Binding SaveMemoCommand}"
-                    Content="保存" />
-            </StackPanel>
+
         </Grid>
+
+        <!--  コマンドバー  -->
+        <ui:CommandBar Grid.Row="1">
+            <ui:AppBarButton
+                Command="{Binding SaveMemoCommand}"
+                Icon="Save"
+                Label="保存" />
+        </ui:CommandBar>
     </Grid>
 </Page>

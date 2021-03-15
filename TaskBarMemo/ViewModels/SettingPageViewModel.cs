@@ -23,7 +23,7 @@ namespace TaskBarMemo.ViewModels
         /// <summary>
         /// 追加のバージョンプロパティ（非常用・Devチャネルのみ）
         /// </summary>
-        public ReactiveProperty<string> AdditionalVersionProperty { get; set; } = new("_prerelease_build210315-1");
+        public ReactiveProperty<string> AdditionalVersionProperty { get; set; } = new("_prerelease_build210315-2");
 
         #endregion
 

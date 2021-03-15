@@ -42,8 +42,8 @@
                 Icon="Setting"
                 Tag="{x:Static local:NaviIcon.Setting}" />
         </ui:NavigationView.FooterMenuItems>
-        <ScrollViewer Margin="0,0,0,12">
-            <ui:Frame x:Name="ContentFrame" Padding="20,4,20,0" />
-        </ScrollViewer>
+        <Grid>
+            <ui:Frame x:Name="ContentFrame" />
+        </Grid>
     </ui:NavigationView>
 </Window>
