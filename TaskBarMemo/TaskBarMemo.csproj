@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForm>true</UseWindowsForm>
     <Deterministic>false</Deterministic>
-    <FileVersion>1.0.900.1</FileVersion>
+    <FileVersion>1.1.900.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
