@@ -22,7 +22,7 @@
         x:Name="NavigationView"
         IsBackButtonVisible="Collapsed"
         IsSettingsVisible="False"
-        PaneDisplayMode="LeftMinimal"
+        PaneDisplayMode="LeftCompact"
         SelectionChanged="NavigationView_SelectionChanged">
         <ui:NavigationView.MenuItems>
             <ui:NavigationViewItem
@@ -43,7 +43,7 @@
                 Tag="{x:Static local:NaviIcon.Setting}" />
         </ui:NavigationView.FooterMenuItems>
         <ScrollViewer Margin="0,0,0,12">
-            <ui:Frame x:Name="ContentFrame" Padding="45,10,45,0" />
+            <ui:Frame x:Name="ContentFrame" Padding="20,4,20,0" />
         </ScrollViewer>
     </ui:NavigationView>
 </Window>

@@ -6,12 +6,30 @@
     xmlns:local="clr-namespace:TaskBarMemo.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:vm="clr-namespace:TaskBarMemo.ViewModels"
     Title="SettingPageView"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <vm:SettingPageViewModel />
+    </Page.DataContext>
 
     <Grid>
-        <TextBlock Text="設定" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Style="{StaticResource HeaderTextBoxStyle}"
+            Text="設定" />
+
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <TextBlock Style="{StaticResource SubHeaderTextBoxStyle}" Text="情報" />
+            <TextBlock Text="バージョン" />
+            <TextBlock Text="{Binding FileVersionProperty.Value}" />
+        </StackPanel>
     </Grid>
 </Page>

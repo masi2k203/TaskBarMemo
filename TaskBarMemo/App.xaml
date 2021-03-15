@@ -12,6 +12,16 @@
                 <!--  Other merged dictionaries here  -->
             </ResourceDictionary.MergedDictionaries>
             <!--  Other app resources here  -->
+            <Style x:Key="HeaderTextBoxStyle" TargetType="TextBlock">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="Margin" Value="0,0,0,20" />
+            </Style>
+            <Style x:Key="SubHeaderTextBoxStyle" TargetType="TextBlock">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
