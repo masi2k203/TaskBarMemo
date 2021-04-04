@@ -8,8 +8,8 @@
     xmlns:ui="http://schemas.modernwpf.com/2019"
     xmlns:vm="clr-namespace:TaskBarMemo.ViewModels"
     Title="HomePageView"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="700"
+    d:DesignWidth="400"
     mc:Ignorable="d">
     <Page.DataContext>
         <vm:HomePageViewModel />
@@ -17,33 +17,65 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock
-            Grid.Row="0"
-            Style="{StaticResource HeaderTextBoxStyle}"
-            Text="新規メモ" />
-
-        <Grid Grid.Row="1" Margin="0,20,0,10">
+        <!--  ページ内容  -->
+        <Grid Grid.Row="0" Margin="20,4,20,10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="8*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBox
-                AcceptsReturn="True"
-                AcceptsTab="True"
-                Text="{Binding MemoBodyProperty.Value, UpdateSourceTrigger=PropertyChanged}" />
-            <StackPanel
-                Grid.Row="2"
-                HorizontalAlignment="Right"
-                Orientation="Horizontal">
-                <Button
-                    Width="100"
-                    Command="{Binding SaveMemoCommand}"
-                    Content="保存" />
-            </StackPanel>
+
+            <TextBlock
+                Grid.Row="0"
+                Style="{StaticResource HeaderTextBoxStyle}"
+                Text="新規メモ" />
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <!--  題名  -->
+                <TextBlock
+                    Grid.Row="0"
+                    Style="{StaticResource SubHeaderTextBoxStyle}"
+                    Text="タイトル" />
+                <TextBox
+                    Grid.Row="1"
+                    Margin="0,0,0,10"
+                    AcceptsReturn="False"
+                    AcceptsTab="False"
+                    Text="{Binding MemoTitleProperty.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!--  本文  -->
+                <TextBlock
+                    Grid.Row="2"
+                    Style="{StaticResource SubHeaderTextBoxStyle}"
+                    Text="本文" />
+                <TextBox
+                    Grid.Row="4"
+                    AcceptsReturn="True"
+                    AcceptsTab="True"
+                    Text="{Binding MemoBodyProperty.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+            </Grid>
+
+
+
         </Grid>
+
+        <!--  コマンドバー  -->
+        <ui:CommandBar Grid.Row="1">
+            <ui:AppBarButton
+                Command="{Binding SaveMemoCommand}"
+                Icon="Save"
+                Label="保存" />
+        </ui:CommandBar>
     </Grid>
 </Page>

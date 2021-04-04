@@ -15,6 +15,11 @@ namespace TaskBarMemo.Models
         public string Guid { get; set; }
 
         /// <summary>
+        /// メモタイトル
+        /// </summary>
+        public string MemoTitle { get; set; }
+
+        /// <summary>
         /// メモ本文
         /// </summary>
         public string MemoBody { get; set; }
