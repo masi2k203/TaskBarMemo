@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TaskBarMemo.Models
 {
+    /// <summary>
+    /// メモデータリポジトリのインターフェイス
+    /// </summary>
     interface IMemoRepository : IDisposable
     {
         public List<MemoData> GetMemos();
