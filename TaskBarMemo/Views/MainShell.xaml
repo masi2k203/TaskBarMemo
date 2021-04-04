@@ -10,13 +10,14 @@
     xmlns:ui="http://schemas.modernwpf.com/2019"
     Title="メモバー"
     Width="400"
-    Height="600"
+    Height="700"
+    ui:ThemeManager.RequestedTheme="Light"
     ui:WindowHelper.UseModernWindowStyle="True"
     ResizeMode="CanMinimize"
     Topmost="True"
     mc:Ignorable="d">
     <i:Interaction.Behaviors>
-        <bh:WindowPositionBehavior Left="400" Top="600" />
+        <bh:WindowPositionBehavior Left="400" Top="700" />
     </i:Interaction.Behaviors>
     <ui:NavigationView
         x:Name="NavigationView"

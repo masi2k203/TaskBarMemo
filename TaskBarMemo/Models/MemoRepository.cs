@@ -42,6 +42,7 @@ namespace TaskBarMemo.Models
                 {
                     cmd.CommandText = "CREATE TABLE IF NOT EXISTS memo(" +
                         "Id TEXT NOT NULL PRIMARY KEY," +
+                        "Title TEXT," +
                         "Body TEXT NOT NULL," +
                         "Time TEXT NOT NULL)";
                     cmd.ExecuteNonQuery();
@@ -70,6 +71,7 @@ namespace TaskBarMemo.Models
                             Memos.Add(new MemoData()
                             {
                                 Guid = reader["Id"].ToString(),
+                                MemoTitle = reader["Title"].ToString(),
                                 MemoBody = reader["Body"].ToString(),
                                 MemoTime = DateTime.Parse(reader["Time"].ToString())
                             });
@@ -93,7 +95,7 @@ namespace TaskBarMemo.Models
 
                 using (var cmd = new SQLiteCommand(cn))
                 {
-                    cmd.CommandText = $"INSERT INTO memo(Id, Body, Time) VALUES('{memo.Guid}', '{memo.MemoBody}', '{memo.MemoTime}')";
+                    cmd.CommandText = $"INSERT INTO memo(Id, Title, Body, Time) VALUES('{memo.Guid}', '{memo.MemoTitle}', '{memo.MemoBody}', '{memo.MemoTime}')";
                     cmd.ExecuteNonQuery();
                 }
             }

@@ -20,6 +20,11 @@ namespace TaskBarMemo.ViewModels
         #region プロパティ
 
         /// <summary>
+        /// メモタイトルのプロパティ
+        /// </summary>
+        public ReactiveProperty<string> MemoTitleProperty { get; set; } = new("デフォルトタイトル");
+
+        /// <summary>
         /// メモ本文テキストのプロパティ
         /// </summary>
         [Required(ErrorMessage = "必須項目")]
@@ -51,6 +56,7 @@ namespace TaskBarMemo.ViewModels
             SaveMemoCommand.Subscribe(_ => DataAgent.SaveMemo(new Models.MemoData()
             {
                 Guid = Guid.NewGuid().ToString("N"),
+                MemoTitle = MemoTitleProperty.Value,
                 MemoBody = MemoBodyProperty.Value,
                 MemoTime = DateTime.Now
             }));
